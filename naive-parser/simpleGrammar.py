@@ -1,62 +1,46 @@
-from tagSetDef import *
-import threading
-import csv
+from trainingSG import *
+from testingSG import *
+from simpleGrammarClasses.simplegrammartoken import *
 import os
 
-pronom_dict = {}
+tabela = {}
 
 
-def normalizeTable(tabela):
-    # tabela
-    for word, columns in tabela.items():
-        totalOcurrencies = sum(columns)
-        for colIndex in range(len(columns)):
-            ocurrencies = tabela[word][colIndex]
-            tabela[word][colIndex] = ocurrencies / totalOcurrencies
-    return tabela
+def getFileName(exec_type):
+
+    file_name = '../macmorpho-v3/macmorpho-{0}.txt'.format(exec_type)
+    dirname = os.path.abspath(file_name)
+    return dirname
 
 
-def imprimeTabela(tabela):
-    os.chdir(os.getcwd())
-    diretorio = 'simple_grammar'
-    if not os.path.exists(diretorio):
-        os.mkdir(diretorio)
-    os.chdir(diretorio)
-    with open('simple_grammar.csv', 'w') as grammar:
-        w = csv.writer(grammar)
-        # w.writerow(tabela.keys())
-        w.writerow(['palavra'] + tags_list)
-        for item in tabela.items():
-            w.writerow([item[0]] + item[1])
-
-    # pass
 
 
-def training(refLines, numTestCases, tabela):
-    for i in range(numTestCases):
-        line = refLines[i]
-        wordVector = line.split()
+def getreflines(exec_type):
+    train_set = getFileName(exec_type)
 
-        for wordpos in wordVector:
-            word = wordpos.split('_')[0]
-            POS = wordpos.split('_')[-1].strip()
+    ref_file = open(train_set, 'r')
 
-            if '+' in POS:
-                print('linha: {0} /word: {1} /pos: {2}'.format(i, word, POS))
-                pos1 = POS.split('+')[0]
-                pos2 = POS.split('+')[-1]
-                list_pos = [pos1, pos2]
-            else:
-                list_pos = [POS]
+    return ref_file.readlines()
 
-            if not word in tabela:
-                columns = [0 for i in range(len(list(tagSetEnum)))]
-                # tabela.update([(word, columns)])
-                tabela[word] = columns
-            for pos in list_pos:
-                tagIndex = tagSetEnum[pos].value - 1
-                tabela[word][tagIndex] += 1
-    tabela = normalizeTable(tabela)
-    # imprimeTabela(tabela)
-    threading.Thread(target=imprimeTabela(tabela)).start()
-    return tabela
+
+def main():
+    num_test_cases = 50
+    # exec_type = 'dev'
+    exec_type = 'train'
+
+    ref_lines = getreflines(exec_type)
+
+    training(ref_lines, num_test_cases, tabela)
+    # print('checkpoint')
+    # procurar, pra cada palavra, a coluna com valor mais alto, e retornar a pos equivalente
+
+    # exec_type = 'test'
+    #
+    # ref_lines = getreflines(exec_type)
+    test(ref_lines, num_test_cases, tabela)
+
+
+# test(refLines)
+
+if __name__ == '__main__':
+    main()
