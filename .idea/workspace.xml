@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6edd4058-eb9a-4c40-8254-44b425efc811" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naive-parser/testingSG.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naive-parser/trainingSG.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naive-parser/parser1.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/naive-parser/simpleGrammar.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/simpleGrammar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naive-parser/simpleGrammarClasses/simplegrammartoken.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/simpleGrammarClasses/simplegrammartoken.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naive-parser/tagset.txt" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/tagset.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naive-parser/testingSG.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/testingSG.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naive-parser/trainingSG.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/trainingSG.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +96,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -110,13 +109,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/naive-parser/simpleGrammar.py</url>
-          <line>17</line>
+          <line>18</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/naive-parser/trainingSG.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="9" />
+          <line>68</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

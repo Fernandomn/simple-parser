@@ -16,21 +16,25 @@ def normalizeTable(tabela):
     return tabela
 
 
-def imprimeTabela(tabela):
+def imprimeTabela(diretorio, tabela):
     os.chdir(os.getcwd())
-    diretorio = 'simple_grammar'
+    # diretorio = 'simple_grammar'
     if not os.path.exists(diretorio):
         os.mkdir(diretorio)
     os.chdir(diretorio)
-    with open('simple_grammar.csv', 'w') as grammar:
+    with open(diretorio + '.csv', 'w') as grammar:
         w = csv.writer(grammar)
         # w.writerow(tabela.keys())
-        w.writerow(['palavra'] + tags_list)
+        if diretorio == 'simple_grammar':
+            w.writerow(['palavra'] + tags_list)
+        else:
+            w.writerow(['pos'] + tags_list)
+
         for item in tabela.items():
             w.writerow([item[0]] + item[1])
 
 
-def training(refLines, numTestCases, tabela):
+def simplePosTraining(refLines, numTestCases, tabela):
     for i in range(numTestCases):
         line = refLines[i]
         wordVector = line.split()
@@ -57,5 +61,25 @@ def training(refLines, numTestCases, tabela):
 
     tabela = normalizeTable(tabela)
     # imprimeTabela(tabela)
-    threading.Thread(target=imprimeTabela(tabela)).start()
+    threading.Thread(target=imprimeTabela('simple_pos_table', tabela)).start()
+    return tabela
+
+
+def simpleGrammarTraining(refLines, numTestCases, tabela):
+    for i in range(numTestCases):
+        actual_POS = 'S'
+        line = refLines[i]
+        wordVector = line.split()
+
+        for word_pos in wordVector:
+            word, pos = word_pos.split('_')
+            if not actual_POS in tabela:
+                columns = [0 for i in range(len(list(tagSetEnum)))]
+                tabela[actual_POS] = columns
+            tagIndex = tagSetEnum[pos].value - 1
+            tabela[actual_POS][tagIndex] += 1
+            actual_POS = pos
+    tabela = normalizeTable(tabela)
+    threading.Thread(target=imprimeTabela('simple_grammar', tabela)).start()
+
     return tabela
