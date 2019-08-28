@@ -3,19 +3,20 @@ from simpleGrammarClasses.simplegrammartoken import *
 import os
 
 
-def pegaPosTabela(word, tabela):
+def pegaPosTabela(previous_tag, word, tabelaSP, tabelaSG):
     # global tabela
-    if word in tabela:
-        line = tabela[word]
+    if word in tabelaSP:
+        line = tabelaSP[word]
     else:
-        return '?'
-    # line = tabela[tagSetEnum[word]]
+        # return '?'
+        line = tabelaSG[previous_tag]
     prob = max(line)
     indexPos = line.index(prob)
+
     return tags_list[indexPos]
 
 
-def simplePosTest(ref_lines, num_test_cases, tabela):
+def simplePosTest(ref_lines, num_test_cases, tabelaSP, tabelaSG):
     print('Testing Naive POS tagger:')
     sentences_count = 0
     word_count = 0
@@ -24,16 +25,18 @@ def simplePosTest(ref_lines, num_test_cases, tabela):
     sentences_list = []
 
     for i in range(num_test_cases):
+        previous_tag = 'S'
         tokens_list = []
         line = ref_lines[i]
         for wordpos in line.split():
             word_count += 1
             word = wordpos.split('_')[0]
-            pos = pegaPosTabela(word, tabela)
+            pos = pegaPosTabela(previous_tag, word, tabelaSP, tabelaSG)
             # parei aqui
             if pos == 'PU' and word == '.':
                 sentences_count += 1
             token = SimpleGrammarToken(word, pos)
+            previous_tag = token.pos
             if token.pos == wordpos.split('_')[-1]:
                 right_guesses += 1
                 token.setiscorrect(True)
@@ -45,6 +48,7 @@ def simplePosTest(ref_lines, num_test_cases, tabela):
     print('Num of Tokens: {0}'.format(word_count))
     print('Precision: {0}'.format(right_guesses / total_guesses))
 
+
 def simpleGrammarTest(ref_lines, num_test_cases, tabela):
     print('Testing Naive Grammar:')
     sentences_count = 0
@@ -54,7 +58,6 @@ def simpleGrammarTest(ref_lines, num_test_cases, tabela):
     sentences_list = []
 
     for i in range(num_test_cases):
-        tokens_list=[]
-        line=ref_lines[i]
+        tokens_list = []
+        line = ref_lines[i]
         # for original_word in line.split():
-

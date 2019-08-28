@@ -40,8 +40,10 @@ def main():
 
     # exec_type = 'test'
     #
+    # COLOCAR OPÇÕES DE ENTRADA PARA MODIFICAR OS TESTES
+
     # ref_lines = getreflines(exec_type)
-    simplePosTest(ref_lines, num_test_cases, tabelaSP)
+    simplePosTest(ref_lines, num_test_cases, tabelaSP, tabelaSG)
     # simpleGrammarTest(ref_lines, num_test_cases, tabelaSG)
 
 

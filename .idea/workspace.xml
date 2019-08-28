@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6edd4058-eb9a-4c40-8254-44b425efc811" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/naive-parser/input/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/naive-parser/simpleGrammar.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/simpleGrammar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naive-parser/tagset.txt" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/tagset.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/naive-parser/testingSG.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/testingSG.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naive-parser/trainingSG.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/trainingSG.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
