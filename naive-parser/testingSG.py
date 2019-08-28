@@ -46,7 +46,8 @@ def simplePosTest(ref_lines, num_test_cases, tabelaSP, tabelaSG):
         # print([(a.token, a.pos, 'right' if a.isCorrect else 'wrong') for a in sentences_list[-1]])
     print('Num. of sentences: {0}'.format(len(sentences_list)))
     print('Num of Tokens: {0}'.format(word_count))
-    print('Precision: {0}'.format(right_guesses / total_guesses))
+    print('Results: {0} right guesses, {1} total answers. {2:.2f}% of precision'.format(right_guesses, total_guesses,
+                                                                                        100*(right_guesses / total_guesses)))
 
 
 def simpleGrammarTest(ref_lines, num_test_cases, tabela):

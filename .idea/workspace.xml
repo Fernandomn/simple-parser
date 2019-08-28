@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6edd4058-eb9a-4c40-8254-44b425efc811" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/naive-parser/input/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/naive-parser/simpleGrammar.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/simpleGrammar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/naive-parser/testingSG.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive-parser/testingSG.py" afterDir="false" />
@@ -29,7 +29,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -108,13 +108,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/naive-parser/simpleGrammar.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/naive-parser/trainingSG.py</url>
-          <line>68</line>
-          <option name="timeStamp" value="10" />
+          <line>13</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -11,6 +11,7 @@ tabelaSG = {}
 
 
 def getFileName(exec_type):
+    os.chdir(os.path.dirname(__file__))
     file_name = '../macmorpho-v3/macmorpho-{0}.txt'.format(exec_type)
     dirname = os.path.abspath(file_name)
     return dirname
@@ -41,6 +42,21 @@ def main():
     # exec_type = 'test'
     #
     # COLOCAR OPÇÕES DE ENTRADA PARA MODIFICAR OS TESTES
+
+
+    ans = input("Digite o banco de testes. 1 -> dev | 2 -> test | 3 -> train")
+    if ans == '1':
+        exec_type = 'dev'
+    elif ans == '2':
+        exec_type = 'test'
+    elif ans == '3':
+        exec_type = 'train'
+    else:
+        print('Valor inválido. Utilizaremos o corpus macmorpho-train')
+        exec_type = 'train'
+
+    print('Working with macmorpho-{0} corpus'.format(exec_type))
+    ref_lines = getreflines(exec_type)
 
     # ref_lines = getreflines(exec_type)
     simplePosTest(ref_lines, num_test_cases, tabelaSP, tabelaSG)
